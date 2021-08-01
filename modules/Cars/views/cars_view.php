@@ -27,6 +27,9 @@ else{
                     $sum += $b['sum_of_km'];
                 }
             }
+            else{
+                echo "Error: " . $connect->error;
+            }
 
             $pytan_finaly = "SELECT * FROM u_yf_cars WHERE carsid = " . $i; #CONNECT TO DB FOR GET LIST OF CAR
             if($re_finaly = $connect->query($pytan_finaly)){
@@ -35,10 +38,31 @@ else{
                     $connect->query('UPDATE u_yf_cars SET koszt =' . $sumar .  ' WHERE carsid = ' . $i); #UPDATE COST OF SERVICE IN DB
                 }
             }
+            else{
+                echo "Error: " . $connect->error;
+            }
             $sum = 0; #RESET SUM OF KM FOR NEW ITTERATION
         }
     }
-    $url = 'http://localhost:8888/index.php?module=Cars&view=List';
-    header("Location: ".$url);
-    echo "<script>AsAlert();</script>";
+    echo "
+    <html>
+        <head>
+            <title>Success!</title>
+        </head>
+        <body>
+            <div class='message'>
+                <h1>Success!</h1>
+                <a class='btn' href='http://localhost:8888/index.php?module=Cars&view=List'>Back to list</a>
+            </div>
+        </body>
+        <style>
+           .message{
+                text-align: center;
+                border: 1px solid yellow;
+                padding: 2%;
+                justify-content: center;
+           }
+        </style>
+    </html>
+    ";
 }
