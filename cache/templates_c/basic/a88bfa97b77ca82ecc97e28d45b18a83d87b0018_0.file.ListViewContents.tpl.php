@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-08-01 18:48:56
+/* Smarty version 3.1.39, created on 2021-08-01 21:27:22
   from '/Applications/MAMP/htdocs/layouts/basic/modules/Vtiger/ListViewContents.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6106d078e11184_28480538',
+  'unifunc' => 'content_6106f59a93e6c2_13978030',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a88bfa97b77ca82ecc97e28d45b18a83d87b0018' => 
     array (
       0 => '/Applications/MAMP/htdocs/layouts/basic/modules/Vtiger/ListViewContents.tpl',
-      1 => 1627836508,
+      1 => 1627846021,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6106d078e11184_28480538 (Smarty_Internal_Template $_smarty_tpl) {
-?><!--FORM FOR COUNTING--><div class="fr row" id="fr"><form class="col-8 col-md-2" method="post" action="/modules/Cars/views/cars_view.php"><p>From: <input class="form-control" type="date" name="start"/></p><p>To: <input class="form-control" type="date" name="end"/></p><p><button class="btn btn-primary" type="submit">Oblicz</button></p></form></div><div class="przycisk"><button class="btn btn-success" id="kalk">kalkulator</button></div><!-- tpl-Base-ListViewContents --><input type="hidden" id="pageStartRange" value="<?php echo $_smarty_tpl->tpl_vars['PAGING_MODEL']->value->getRecordStartRange();?>
+function content_6106f59a93e6c2_13978030 (Smarty_Internal_Template $_smarty_tpl) {
+?><!--FORM FOR COUNTING--><div class="fr row" id="fr"><form class="col-8 col-md-2" method="post" action="/modules/Cars/views/cars_view.php"><p>From: <input class="form-control" type="date" name="start"/></p><p>To: <input class="form-control" type="date" name="end"/></p><p><button class="btn btn-primary" type="submit">Oblicz</button></p></form></div><div class="przycisk" id="prz"><button class="btn btn-success" id="kalk">kalkulator</button></div><!-- tpl-Base-ListViewContents --><input type="hidden" id="pageStartRange" value="<?php echo $_smarty_tpl->tpl_vars['PAGING_MODEL']->value->getRecordStartRange();?>
 "/><input type="hidden" id="pageEndRange" value="<?php echo $_smarty_tpl->tpl_vars['PAGING_MODEL']->value->getRecordEndRange();?>
 "/><input type="hidden" id="previousPageExist" value="<?php echo $_smarty_tpl->tpl_vars['PAGING_MODEL']->value->isPrevPageExists();?>
 "/><input type="hidden" id="nextPageExist" value="<?php echo $_smarty_tpl->tpl_vars['PAGING_MODEL']->value->isNextPageExists();?>
@@ -172,6 +172,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></tr></tfoot><?p
 				function AsAlert(){
 					alert('ok');
 				}
+
+		function CheckUrl(){
+			if (window.location.href != 'http://localhost:8888/index.php?module=Cars&view=List'){
+				document.getElementById('prz').hidden = true;
+			}
+			else{
+				document.getElementById('prz').hidden = false;
+			}
+		}
+		CheckUrl();
 	<?php echo '</script'; ?>
 >
 <?php }

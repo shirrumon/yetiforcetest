@@ -19,7 +19,7 @@
 		</form>
 	</div>
 
-	<div class="przycisk">
+	<div class="przycisk" id="prz">
 		<button class="btn btn-success" id="kalk">kalkulator</button>
 	</div>
 
@@ -221,5 +221,15 @@
 				function AsAlert(){
 					alert('ok');
 				}
+
+		function CheckUrl(){
+			if (window.location.href != 'http://localhost:8888/index.php?module=Cars&view=List'){
+				document.getElementById('prz').hidden = true;
+			}
+			else{
+				document.getElementById('prz').hidden = false;
+			}
+		}
+		CheckUrl();
 	</script>
 {/strip}
